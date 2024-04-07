@@ -7,7 +7,7 @@ on:
 
 env:
   # Local environment variables used later in the workflow
-  AZURE_CONTAINER_REGISTRY: 'name of your Azure Container Registry'
+  AZURE_CONTAINER_REGISTRY: 'acseshop3034653651'
   CONTAINER_NAME: 'productservice'
   RESOURCE_GROUP: 'rg-eshop'
   CLUSTER_NAME: 'aks-eshop'
@@ -33,4 +33,4 @@ jobs:
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
-          az acr build --file ${{ env.DOCKER_PATH }} --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.AZURE_CONTAINER_REGISTRY }}:${{ github.sha }} --registry ${{ acseshop3034653651 }} -g ${{ env.RESOURCE_GROUP }} .
+          az acr build --file ${{ env.DOCKER_PATH }} --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
